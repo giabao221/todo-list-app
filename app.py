@@ -1,5 +1,5 @@
 # Danh sách để lưu các công việc
-tasks = []
+tasks.append({"name": task_name, "completed": False})
 def add_task(task_name):
     """Thêm một công việc mới vào danh sách."""
     tasks.append(task_name)
@@ -17,4 +17,12 @@ def list_tasks():
     else:
         print("Danh sách công việc:")
         for i, task in enumerate(tasks, start=1):
-            print(f"{i}. {task}")
+            status = "[x]" if task["completed"] else "[ ]"
+            print(f"{i}. {status} {task['name']}")
+def complete_task(task_index):
+    """Đánh dấu một công việc là hoàn thành."""
+    if 0 <= task_index < len(tasks):
+        tasks[task_index]["completed"] = True
+        print(f"✅ Đã hoàn thành: {tasks[task_index]['name']}")
+    else:
+        print("❌ Chỉ số công việc không hợp lệ.")
