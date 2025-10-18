@@ -23,6 +23,13 @@ def complete_task(task_index):
     """Đánh dấu một công việc là hoàn thành."""
     if 0 <= task_index < len(tasks):
         tasks[task_index]["completed"] = True
-        print(f"✅ Đã hoàn thành: {tasks[task_index]['name']}")
+        print(f"Đã hoàn thành: {tasks[task_index]['name']}")
     else:
-        print("❌ Chỉ số công việc không hợp lệ.")
+        print("Chỉ số công việc không hợp lệ.")
+def delete_task(task_index):
+    """Xóa một công việc khỏi danh sách."""
+    if 0 <= task_index < len(tasks):
+        removed_task = tasks.pop(task_index)
+        print(f"Đã xóa công việc: {removed_task['name']}")
+    else:
+        print("Chỉ số công việc không hợp lệ.")
